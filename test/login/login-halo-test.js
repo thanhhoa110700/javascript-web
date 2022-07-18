@@ -25,6 +25,42 @@ describe('Login', function () {
         let pin = "123456"
         await loginHaloPage.loginHalo(username, password, pin)
 
-    });
+
+    })
+
+    it("Login hahalolo fail username", async function () {
+        let username = "halome106@skyoi.th"
+        let password = "admin@123"
+        await loginHaloPage.loginUserfail(username, password)
+        
+    })
+
+    it("Login hahalolo fail password", async function () {
+        let username = "halome106@skyoi.tk"
+        let password = "admin@124"
+        await loginHaloPage.loginPwdfail(username, password)
+    })
+
+    it("Login hahalolo fail userpass", async function () {
+        let username = "halome106@skyoi.th"
+        let password = "admin@124"
+        await loginHaloPage.loginFailidpwd(username, password)
+    })
+
+
+    it("Login hahalolo fail userpass null", async function () {
+       
+    })
+
+    it("Login hahalolo fail user null", async function () {
+        let username = ""
+        let password = "admin@123"
+        await loginHaloPage.loginUsernull(username, password)
+    })
     
+    it("Login hahalolo fail pwd null", async function () {
+        let username = "halome106@skyoi.tk"
+        let password = ""
+        await loginHaloPage.loginPwdnull(username, password)
+    })
 });

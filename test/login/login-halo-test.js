@@ -19,7 +19,7 @@ describe('Login', function () {
         await driver.quit()
       });
 
-    
+
     it("Login hahalolo success", async function () {
         let username = "halome106@skyoi.tk"
         let password = "admin@123"
@@ -28,12 +28,12 @@ describe('Login', function () {
 
 
     })
-   
+
     it("Login hahalolo fail username", async function () {
         let username = "halome106@skyoi.th"
         let password = "admin@123"
         await loginHaloPage.loginUserfail(username, password)
-        
+
     })
 
     it("Login hahalolo fail password", async function () {
@@ -50,7 +50,9 @@ describe('Login', function () {
 
 
     it("Login hahalolo fail userpass null", async function () {
-       
+        let username = ""
+        let password = ""
+        await loginHaloPage.loginFailnull(username, password)
     })
 
     it("Login hahalolo fail user null", async function () {
@@ -58,7 +60,7 @@ describe('Login', function () {
         let password = "admin@123"
         await loginHaloPage.loginUsernull(username, password)
     })
-    
+
     it("Login hahalolo fail pwd null", async function () {
              let username = "halome106@skyoi.tk"
              let password = ""
@@ -69,12 +71,12 @@ describe('Login', function () {
             let username = "halome106@skyoi.tk"
             let password = "admin@123"
             await loginHaloPage.loginNotyou(username, password)
-       
+
     })
     it("Login hahalolo come back", async function () {
         let username = "halome106@skyoi.tk"
         let password = "admin@123"
         await loginHaloPage.loginComeback(username, password)
-   
+
 })
 });

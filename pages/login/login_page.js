@@ -4,7 +4,7 @@ class LoginHahaloloPage {
     constructor(driver) {
         this.driver = driver
     }
-
+    //Login hahalolo success 
     async loginHalo(username, pwd, pin) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -20,7 +20,7 @@ class LoginHahaloloPage {
         await this.clickLogoutok()
 
     }
-
+    // Login hahalolo fail username
     async loginUserfail(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -35,7 +35,7 @@ class LoginHahaloloPage {
 
 
     }
-
+    // Login hahalolo fail password
     async loginPwdfail(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -48,6 +48,7 @@ class LoginHahaloloPage {
     }
 
     }
+    // Login hahalolo fail id pw
     async loginFailidpwd(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -60,7 +61,7 @@ class LoginHahaloloPage {
     }
 
     }
-
+    // Login hahalolo null 
     async loginFailnull(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -73,6 +74,7 @@ class LoginHahaloloPage {
     }
 
     }
+    // Login hahalolo null username
     async loginUsernull(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -85,6 +87,7 @@ class LoginHahaloloPage {
     }
 
     }
+    // Login hahalolo null password
     async loginPwdnull(username, pwd) {
         await this.clickLoginhahalolo()
         await this.driver.sleep(2000)
@@ -97,6 +100,28 @@ class LoginHahaloloPage {
     }
 
     }
+
+    async loginNotyou(username, pwd) {
+        await this.clickLoginhahalolo()
+        await this.driver.sleep(2000)
+        await this.enterUsername(username)
+        await this.enterPwd(pwd)
+        await this.clickLoginbtn()
+        await this.clickNotyou()
+      
+       
+    }
+    async loginComeback(username, pwd) {
+        await this.clickLoginhahalolo()
+        await this.driver.sleep(2000)
+        await this.enterUsername(username)
+        await this.enterPwd(pwd)
+        await this.clickLoginbtn()
+        await this.clickComeback()
+      
+       
+    }
+    
 
     async clickLoginhahalolo() {
         const login = await this.driver.wait(until.elementLocated({ id: "platforms-halo"}))
@@ -138,8 +163,8 @@ class LoginHahaloloPage {
     }
 
     async clickTextid() {
-        const loginText = await this.driver.wait(until.elementLocated({ xpath: "/html/body/div/div[1]/div/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div/div/div/p/span"}))
-        await loginText.getText();
+        const loginidText = await this.driver.wait(until.elementLocated({ xpath: "/html/body/div/div[1]/div/div[1]/div/div[2]/div/div/div/div[1]/div[1]/div/div/div/p/span"}))
+        await loginidText.getText();
     }
     async clickTextpwd() {
         const loginText = await this.driver.wait(until.elementLocated({ xpath: "/html/body/div/div[1]/div/div[1]/div/div[2]/div/div/div/div[1]/div[2]/div/div/div/p/span"}))
@@ -149,7 +174,15 @@ class LoginHahaloloPage {
         const continueBtn = await this.driver.wait(until.elementLocated({ id: "platforms-halo"}))
         await continueBtn.click()
     }
-
+    async clickNotyou() {
+        const notyouBtn = await this.driver.wait(until.elementLocated({ xpath: "/html/body/div/div/div[2]/div/div/div[3]/div/p[2]"}))
+        await notyouBtn.click()
+    }
+    async clickComeback() {
+        const comeBack = await this.driver.wait(until.elementLocated({ xpath: " /html/body/div/div/div[2]/div/div/div[5]/h1"}))
+        await comeBack.click()
+    }
+    
     async enterPincode(pin) {
         const pinCode = await this.driver.wait(until.elementLocated({ xpath: "/html/body/div/div/div[2]/div/div/div[3]/div/div[1]/div[1]/input"}))
         await pinCode.sendKeys(pin)

@@ -18,6 +18,7 @@ describe('Login', function () {
     afterEach(async function () {
         await driver.quit()
       });
+
     
     it("Login hahalolo success", async function () {
         let username = "halome106@skyoi.tk"
@@ -27,7 +28,7 @@ describe('Login', function () {
 
 
     })
-
+   
     it("Login hahalolo fail username", async function () {
         let username = "halome106@skyoi.th"
         let password = "admin@123"
@@ -59,8 +60,21 @@ describe('Login', function () {
     })
     
     it("Login hahalolo fail pwd null", async function () {
-        let username = "halome106@skyoi.tk"
-        let password = ""
+             let username = "halome106@skyoi.tk"
+             let password = ""
         await loginHaloPage.loginPwdnull(username, password)
     })
+
+        it("Login hahalolo not you", async function () {
+            let username = "halome106@skyoi.tk"
+            let password = "admin@123"
+            await loginHaloPage.loginNotyou(username, password)
+       
+    })
+    it("Login hahalolo come back", async function () {
+        let username = "halome106@skyoi.tk"
+        let password = "admin@123"
+        await loginHaloPage.loginComeback(username, password)
+   
+})
 });

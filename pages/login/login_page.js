@@ -1,6 +1,5 @@
 const {until} = require("selenium-webdriver")
-const assert = require("assert")
-
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 class LoginHahaloloPage {
     constructor(driver) {
         this.driver = driver
@@ -129,8 +128,6 @@ class LoginHahaloloPage {
 
 
      enterPwd(pwd) {
-        // const loginPwd = await this.driver.wait(until.elementLocated({ id: "password"}))
-        // await loginPwd.sendKeys(pwd)
          Promise.any([this.driver.wait(until.elementLocated({id: "password"}))])
             .then((el) => {
                 el.sendKeys(pwd)
